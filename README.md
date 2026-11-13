@@ -18,14 +18,14 @@ hydra -l root -P /usr/share/wordlists/metasploit/unix_passwords.txt ssh://192.16
 
 Wazuh ingested `/var/log/auth.log` from `target-server` in real time, attributing the failed `root` authentication attempts to Kali's IP (`192.168.100.8`):
 
-![Hydra Execution and Wazuh Alert Attribution](threat-hunting.jpg)
+![Hydra Execution and Wazuh Alert Attribution](threat-hunting.png)
 
 ---
 
 ## Phase 2: Rule Correlation & MITRE ATT&CK Mapping
 Wazuh escalated the rapid failed logins into a **Level 10** alert (**Rule `2502`** — *syslog: User missed the password more than one time*, `firedtimes: 11`) mapped directly to **MITRE ATT&CK `T1110` (Brute Force)**:
 
-![Wazuh Rule 2502 and MITRE T1110 Mapping](hydra-alert.jpg)
+![Wazuh Rule 2502 and MITRE T1110 Mapping](hydra-alert.png)
 
 | Rule ID | Level | Description | Role in Detection Chain |
 | :--- | :--- | :--- | :--- |
